@@ -1,0 +1,737 @@
+08-13 23:31:13 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEXT" not found; SQL statement:
+SELECT * FROM `text`  [42102-168]
+08-13 23:32:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Index "METER_BEATS_IDX" not found; SQL statement:
+DROP INDEX `meter_beats_idx` [42112-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.command.ddl.DropIndex.update(DropIndex.java:48)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:75)
+	at org.h2.command.Command.executeUpdate(Command.java:230)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:194)
+	at com.j256.ormlite.jdbc.JdbcCompiledStatement.runExecute(JdbcCompiledStatement.java:62)
+	at com.j256.ormlite.table.TableUtils.doStatements(TableUtils.java:458)
+	at com.j256.ormlite.table.TableUtils.doDropTable(TableUtils.java:271)
+	at com.j256.ormlite.table.TableUtils.dropTable(TableUtils.java:151)
+	at edu.wheaton.hymnal.data.DbResetTest.setupDb(DbResetTest.java:43)
+	at edu.wheaton.hymnal.data.DbResetTest.main(DbResetTest.java:144)
+08-13 23:32:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "METER" not found; SQL statement:
+DROP TABLE `meter`  [42102-168]
+08-13 23:32:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEXT" not found; SQL statement:
+DROP TABLE `text`  [42102-168]
+08-13 23:32:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "TUNE" not found; SQL statement:
+DROP TABLE `tune`  [42102-168]
+08-13 23:32:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "STANZA" not found; SQL statement:
+DROP TABLE `stanza`  [42102-168]
+08-13 23:32:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "VOICE" not found; SQL statement:
+DROP TABLE `voice`  [42102-168]
+08-13 23:39:43 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "BACKUP TO ~[*]/DB.BACKUP "; expected "NOT, EXISTS, SELECT, FROM"; SQL statement:
+BACKUP TO ~/db.backup [42001-168]
+08-13 23:40:11 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException"; SQL statement:
+BACKUP TO db.backup [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.command.Command.executeUpdate(Command.java:234)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:177)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:152)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1311)
+	at org.h2.server.web.WebApp.query(WebApp.java:1001)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:964)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:967)
+	at org.h2.server.web.WebThread.process(WebThread.java:166)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.expression.ExpressionColumn.getValue(ExpressionColumn.java:165)
+	at org.h2.command.dml.BackupCommand.update(BackupCommand.java:47)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:75)
+	at org.h2.command.Command.executeUpdate(Command.java:230)
+	... 9 more
+08-13 23:40:30 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException"; SQL statement:
+BACKUP TO db.backup [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.command.Command.executeUpdate(Command.java:234)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:177)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:152)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1311)
+	at org.h2.server.web.WebApp.query(WebApp.java:1001)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:964)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:967)
+	at org.h2.server.web.WebThread.process(WebThread.java:166)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.expression.ExpressionColumn.getValue(ExpressionColumn.java:165)
+	at org.h2.command.dml.BackupCommand.update(BackupCommand.java:47)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:75)
+	at org.h2.command.Command.executeUpdate(Command.java:230)
+	... 9 more
+08-15 20:41:51 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'' (TUNE: ID INTEGER DEFAULT (NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_20936797_D3FF_48B3_AF08_58263C69F26C) NOT NULL NULL_TO_DEFAULT SEQUENCE PUBLIC.SYSTEM_SEQUENCE_20936797_D3FF_48B3_AF08_58263C69F26C)"; SQL statement:
+INSERT INTO "PUBLIC"."TUNE"("ID","NAME","METER_ID","COMPOSER","KEYOF","TIMESIGNATURE","TEMPO","PARTIALSTRING","DEFAULTTEXT_ID")VALUES(?,?,?,?,?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9) [22018-168]
+08-15 20:41:51 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'' (TUNE: ID INTEGER DEFAULT (NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_20936797_D3FF_48B3_AF08_58263C69F26C) NOT NULL NULL_TO_DEFAULT SEQUENCE PUBLIC.SYSTEM_SEQUENCE_20936797_D3FF_48B3_AF08_58263C69F26C)"; SQL statement:
+INSERT INTO "PUBLIC"."TUNE"("ID","NAME","METER_ID","COMPOSER","KEYOF","TIMESIGNATURE","TEMPO","PARTIALSTRING","DEFAULTTEXT_ID")VALUES(?,?,?,?,?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9) [22018-168]
+08-16 20:01:05 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-16 20:05:18 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-16 20:08:34 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-16 20:10:00 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-16 20:12:00 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-16 20:14:55 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-16 20:15:53 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-16 20:17:09 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-16 20:17:29 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-16 20:22:08 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-16 20:23:56 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-18 09:48:15 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT "; expected "TOP, LIMIT, DISTINCT, ALL, *, NOT, EXISTS"; SQL statement:
+show create table METER [42001-168]
+08-18 09:48:43 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SHOW COLUMNS FROM TABLE METER[*] "; SQL statement:
+show columns from table meter [42000-168]
+08-19 15:03:08 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-19 15:03:44 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-19 15:04:16 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-19 15:04:43 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-19 15:24:21 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-19 15:25:24 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-19 15:25:33 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-19 15:25:42 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-19 15:30:51 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-19 15:33:25 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-19 15:33:52 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-19 15:34:02 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-19 15:41:28 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-19 15:44:25 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-19 16:13:00 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-19 16:14:03 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more
+08-19 16:26:46 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: General error: "java.lang.NullPointerException" [50000-168]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convert(DbException.java:281)
+	at org.h2.message.DbException.toSQLException(DbException.java:254)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2782)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1024)
+	at org.h2.server.web.WebApp.process(WebApp.java:221)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.lang.NullPointerException
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:291)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:277)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:198)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:263)
+	at org.h2.value.Value.compareTo(Value.java:895)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3476)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2778)
+	... 6 more

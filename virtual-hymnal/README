@@ -1,0 +1,24 @@
+Author: Neile Havens
+
+Summary:
+This application is a Java Swing application designed to explore the
+polymorphic relationship between hymn tunes and texts.
+
+Design:
+- Patterns: Observer and State design patterns
+- Libraries: 
+	junit (unit testing)
+	freemarker (template engine to build lilypond input files)
+	h2 (hymn database embedded in application)
+	ormlite (object relational mapper)
+	maven
+
+Dependency:
+- lilypond music typsetting program must be in the PATH
+
+Usage:
+$ git clone git://github.com/nhavens/hymnal.git
+$ cd hymnal/virtual-hymnal
+$ mvn package
+$ cd target
+$ java -jar virtual-hymnal-1.0-SNAPSHOT-jar-with-dependencies.jar
