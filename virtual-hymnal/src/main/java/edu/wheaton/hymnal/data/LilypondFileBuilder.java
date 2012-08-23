@@ -1,6 +1,5 @@
 package edu.wheaton.hymnal.data;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.Writer;
 
@@ -20,12 +19,11 @@ public class LilypondFileBuilder {
 		// Here I set a file directory for it:
 		try {
 			cfg = new Configuration();
-			cfg.setDirectoryForTemplateLoading(new File(this.getClass()
-					.getResource("/").getPath()));
+			cfg.setClassForTemplateLoading(this.getClass(), "/");
 			temp = cfg.getTemplate(HYMN_TEMPLATE);
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		} 
 		// Specify how templates will see the data-model. This is an advanced
 		// topic...
 		// but just use this:
@@ -48,8 +46,10 @@ public class LilypondFileBuilder {
 			writer.flush();
 			writer.close();
 		} catch (TemplateException e) {
+			e.printStackTrace();
 			throw new LilypondException(e);
 		} catch ( IOException e) {
+			e.printStackTrace();
 			throw new LilypondException(e);
 		}
 	}

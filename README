@@ -17,6 +17,7 @@ Dependency:
 - lilypond music typsetting program must be in the PATH
 
 Usage:
+$ sudo apt-get install lilypond maven2
 $ git clone git://github.com/nhavens/hymnal.git
 $ cd hymnal/virtual-hymnal
 $ mvn package

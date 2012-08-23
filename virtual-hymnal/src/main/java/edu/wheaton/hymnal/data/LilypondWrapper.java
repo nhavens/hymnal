@@ -20,6 +20,14 @@ public class LilypondWrapper extends Observable {
 	private List<String> command;
 	private ProcessBuilder lilypondPB;
 	private Process lilypondProcess;
+	
+	/*
+	 * Rather than swallowing exceptions from the SwingWorker's background
+	 * thread, capture it here. Then, it is available to be passed back to any
+	 * object observing this object. If the SwingWorker executes without error,
+	 * the value of this variable will remain null.
+	 */
+	private LilypondException lilypondException = null;
 
 	public LilypondWrapper() {
 		try {
@@ -64,8 +72,9 @@ public class LilypondWrapper extends Observable {
 		SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
 
 			@Override
-			protected Void doInBackground() throws Exception {
+			protected Void doInBackground() {
 				try {
+					lilypondException = null;
 					/*
 					 * Truncate file if sheet music has already been generated.
 					 * This is necessary for the case in which lilypond creates
@@ -123,13 +132,15 @@ public class LilypondWrapper extends Observable {
 						new File(pg2URL.getPath()).delete();
 					}
 
-					// this method must return a Void type
-					return null;
 				} catch (IOException e) {
-					throw new LilypondException(e);
+					lilypondException = new LilypondException(e);
 				} catch (InterruptedException e) {
-					throw new LilypondException(e);
+					lilypondException = new LilypondException(e);
+				} catch (LilypondException e) {
+					lilypondException = e;
 				}
+				// this method must return a Void type
+				return null;
 			}
 
 			@Override
@@ -139,7 +150,10 @@ public class LilypondWrapper extends Observable {
 				// send the PNG file name to any Observers once the lilypond
 				// command has completed
 				LilypondWrapper.this.setChanged();
-				LilypondWrapper.this.notifyObservers(hymnPNG.toURI());
+				if (lilypondException == null)
+					LilypondWrapper.this.notifyObservers(hymnPNG.toURI());
+				else
+					LilypondWrapper.this.notifyObservers(lilypondException);
 			}
 		};
 

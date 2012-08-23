@@ -33,6 +33,7 @@ import javax.swing.SwingConstants;
 
 import edu.wheaton.hymnal.data.Db;
 import edu.wheaton.hymnal.data.H2Db;
+import edu.wheaton.hymnal.data.LilypondException;
 import edu.wheaton.hymnal.data.LilypondWrapper;
 import edu.wheaton.hymnal.data.Stanza;
 import edu.wheaton.hymnal.data.Text;
@@ -318,14 +319,19 @@ public class MusicPage extends JFrame implements Observer {
 	public void update(Observable o, Object arg) {
 		if (o instanceof Model && this.isVisible()) {
 			render();
-		} else if (o instanceof LilypondWrapper && arg instanceof URI) {
-			// NOTE: this will hide the loading message
-			try {
-				if (new File((URI)arg).length() == 0L) displayErrorMessage();
-				else displayMusicScrollPane(((URI) arg).toURL());
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
+		} else if (o instanceof LilypondWrapper) {
+			if (arg instanceof LilypondException) {
+				((LilypondException) arg).printStackTrace();
 				displayErrorMessage();
+			} else if (arg instanceof URI) {
+				// NOTE: this will hide the loading message
+				try {
+					if (new File((URI)arg).length() == 0L) displayErrorMessage();
+					else displayMusicScrollPane(((URI) arg).toURL());
+				} catch (MalformedURLException e) {
+					e.printStackTrace();
+					displayErrorMessage();
+				}
 			}
 		}
 	}
