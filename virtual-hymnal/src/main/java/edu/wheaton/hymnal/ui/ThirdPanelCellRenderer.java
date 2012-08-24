@@ -7,19 +7,19 @@ import java.awt.Component;
 import java.awt.Color;
 import javax.swing.ToolTipManager;
 
-public class ThirdPanelCellRenderer<E> extends JLabel implements
-		ListCellRenderer<E> {
+public class ThirdPanelCellRenderer extends JLabel implements
+		ListCellRenderer {
 	private static final long serialVersionUID = 1L;
-	private final E defaultObject;
+	private final Object defaultObject;
 	private static final String DEFAULT_TOOLTIP_TEXT = "Default Selection";
 
-	public ThirdPanelCellRenderer(E defaultObject) {
+	public ThirdPanelCellRenderer(Object defaultObject) {
 		setOpaque(true);
 		this.defaultObject = defaultObject;
 	}
 
-	public Component getListCellRendererComponent(JList<? extends E> list,
-			E value, int index, boolean isSelected, boolean cellHasFocus) {
+	public Component getListCellRendererComponent(JList list,
+			Object value, int index, boolean isSelected, boolean cellHasFocus) {
 
 		setText(value.toString());
 

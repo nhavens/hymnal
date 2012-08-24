@@ -26,7 +26,7 @@ public class TextChooserPanel extends UpdateableChooserPanel implements
 	private static final Db db = H2Db.getInstance();
 
 	private JLabel messageLabel;
-	private JList<Text> list;
+	private JList list;
 	private JScrollPane scrollPane;
 	private Model model;
 	private State st;
@@ -53,7 +53,7 @@ public class TextChooserPanel extends UpdateableChooserPanel implements
 	 */
 	private void populateWithAll() {
 		setupList(db.selectAllTexts());
-		list.setCellRenderer(new StandardCellRenderer<Text>());
+		list.setCellRenderer(new StandardCellRenderer());
 		scrollPane = new JScrollPane(list);
 		scrollPane.setPreferredSize(this.getPreferredSize());
 
@@ -61,7 +61,7 @@ public class TextChooserPanel extends UpdateableChooserPanel implements
 	}
 
 	private void setupList(Text[] textArray) {
-		list = new JList<Text>(textArray);
+		list = new JList(textArray);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list.addListSelectionListener(this);
 		list.setLayoutOrientation(JList.VERTICAL);
@@ -85,7 +85,7 @@ public class TextChooserPanel extends UpdateableChooserPanel implements
 	 * when returning from the MusicPage to the Chooser.
 	 */
 	public void setSelectedItem() {
-		ListModel<Text> lm = list.getModel();
+		ListModel lm = list.getModel();
 		if (lm.getSize() == 0) {
 			System.out
 					.println("TextChooserPanel: cannot set selected item on an empty list.");
@@ -106,10 +106,9 @@ public class TextChooserPanel extends UpdateableChooserPanel implements
 	private class SecondPanelState implements State {
 		public void update(Observable o, Object arg) {
 			/*
-			 * cases: 
-			 * - arg is top level selection -> ignore, b/c this panel goes away 
-			 * - arg is text -> ignore changes in text selection 
-			 * - arg is tune -> should not happen, b/c no tune list available
+			 * cases: - arg is top level selection -> ignore, b/c this panel
+			 * goes away - arg is text -> ignore changes in text selection - arg
+			 * is tune -> should not happen, b/c no tune list available
 			 */
 		}
 	}
@@ -120,7 +119,7 @@ public class TextChooserPanel extends UpdateableChooserPanel implements
 				removeAll();
 				setupList(H2Db.getInstance().selectTextsFor((Tune) arg));
 
-				list.setCellRenderer(new ThirdPanelCellRenderer<Text>(db
+				list.setCellRenderer(new ThirdPanelCellRenderer(db
 						.selectDefaultTextFor((Tune) arg)));
 
 				scrollPane = new JScrollPane(list);

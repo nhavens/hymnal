@@ -7,7 +7,7 @@ import java.awt.Component;
 import java.awt.Color;
 import java.awt.Graphics;
 
-class StandardCellRenderer<E> extends JLabel implements ListCellRenderer<E> {
+class StandardCellRenderer extends JLabel implements ListCellRenderer {
 	private static final long serialVersionUID = 1L;
 
 	public StandardCellRenderer() {
@@ -15,8 +15,8 @@ class StandardCellRenderer<E> extends JLabel implements ListCellRenderer<E> {
 	}
 
 	@Override
-	public Component getListCellRendererComponent(JList<? extends E> list,
-			E value, int index, boolean isSelected, boolean cellHasFocus) {
+	public Component getListCellRendererComponent(JList list, Object value,
+			int index, boolean isSelected, boolean cellHasFocus) {
 
 		setText(value.toString());
 

@@ -26,7 +26,7 @@ public class TuneChooserPanel extends UpdateableChooserPanel implements
 	private static final Db db = H2Db.getInstance();
 
 	private JLabel messageLabel;
-	private JList<Tune> list;
+	private JList list;
 	private JScrollPane scrollPane;
 	private Model model;
 	private State st;
@@ -53,7 +53,7 @@ public class TuneChooserPanel extends UpdateableChooserPanel implements
 	 */
 	private void populateWithAll() {
 		setupList(db.selectAllTunes());
-		list.setCellRenderer(new StandardCellRenderer<Tune>());
+		list.setCellRenderer(new StandardCellRenderer());
 		scrollPane = new JScrollPane(list);
 		scrollPane.setPreferredSize(this.getPreferredSize());
 
@@ -61,7 +61,7 @@ public class TuneChooserPanel extends UpdateableChooserPanel implements
 	}
 
 	private void setupList(Tune[] tuneArray) {
-		list = new JList<Tune>(tuneArray);
+		list = new JList(tuneArray);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list.addListSelectionListener(this);
 		list.setLayoutOrientation(JList.VERTICAL);
@@ -85,7 +85,7 @@ public class TuneChooserPanel extends UpdateableChooserPanel implements
 	 * when returning from the MusicPage to the Chooser.
 	 */
 	public void setSelectedItem() {
-		ListModel<Tune> lm = list.getModel();
+		ListModel lm = list.getModel();
 		if (lm.getSize() == 0) {
 			System.out
 					.println("TuneChooserPanel: cannot set selected item on an empty list.");
@@ -119,7 +119,7 @@ public class TuneChooserPanel extends UpdateableChooserPanel implements
 				removeAll();
 				setupList(H2Db.getInstance().selectTunesFor((Text) arg));
 
-				list.setCellRenderer(new ThirdPanelCellRenderer<Tune>(db
+				list.setCellRenderer(new ThirdPanelCellRenderer(db
 						.selectDefaultTuneFor((Text) arg)));
 
 				scrollPane = new JScrollPane(list);
