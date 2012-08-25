@@ -17,6 +17,7 @@ public class DbResetTest {
 	private Dao<Stanza, String> stanzaDao;
 	private Dao<Voice, String> voiceDao;
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public DbResetTest() throws SQLException {
 //		// sqlite
 //		String sqliteDbPath = this.getClass().getResource("/hymnal.sqlite").getPath();
@@ -31,11 +32,11 @@ public class DbResetTest {
 		connectionSource = new JdbcConnectionSource(h2DbUrl);
 
 		// instantiate the Dao's
-		meterDao = DaoManager.createDao(connectionSource, Meter.class);
-		textDao = DaoManager.createDao(connectionSource, Text.class);
-		tuneDao = DaoManager.createDao(connectionSource, Tune.class);
-		stanzaDao = DaoManager.createDao(connectionSource, Stanza.class);
-		voiceDao = DaoManager.createDao(connectionSource, Voice.class);
+		meterDao = DaoManager.createDao(connectionSource, (Class)Meter.class);
+		textDao = DaoManager.createDao(connectionSource, (Class)Text.class);
+		tuneDao = DaoManager.createDao(connectionSource, (Class)Tune.class);
+		stanzaDao = DaoManager.createDao(connectionSource, (Class)Stanza.class);
+		voiceDao = DaoManager.createDao(connectionSource, (Class)Voice.class);
 	}
 
 	public void setupDb() throws SQLException {

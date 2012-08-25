@@ -10,6 +10,7 @@ public class H2Db extends Db {
 
 	private static final String DB_FILENAME = "hymnal.h2";
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private H2Db() {
 		super();
 
@@ -43,9 +44,9 @@ public class H2Db extends Db {
 			connectionSource = new JdbcConnectionSource(dburl);
 
 			// instantiate the Dao's
-			textDao = DaoManager.createDao(connectionSource, Text.class);
-			tuneDao = DaoManager.createDao(connectionSource, Tune.class);
-			meterDao = DaoManager.createDao(connectionSource, Meter.class);
+			textDao = DaoManager.createDao(connectionSource, (Class)Text.class);
+			tuneDao = DaoManager.createDao(connectionSource, (Class)Tune.class);
+			meterDao = DaoManager.createDao(connectionSource, (Class)Meter.class);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
